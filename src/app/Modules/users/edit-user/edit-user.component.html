@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div class="row">
+    <div style="height: 90vh; width: fit-content;" class="col-lg-2 bg-dark d-flex flex-column p-3">
+      <a style="text-decoration: none;color: whitesmoke;" class="fw-bolder mb-3" routerLink="/dashboard">HOME</a>
+      <a style="text-decoration: none;color: whitesmoke;" class="fw-bolder mb-3" routerLink="/users">USERS</a>
+    </div>
+    <div class="col-lg-11">
+
+      <div class="d-flex align-items-center justify-content-center flex-column" style="height: 92vh;">
+        <h2>Edit User form</h2>
+
+        <form class="border rounded p-3 w-75 mt-5">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInputId" placeholder="Id">
+            <label for="floatingInputId">Id</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInputname" placeholder="Username">
+            <label for="floatingInputname">Username</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInputemail" placeholder="Enter Your Email">
+            <label for="floatingInputemail">Email</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <select class="form-control" id="floatingInputstatus">
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+            <label for="floatingInputstatus">Status</label>
+          </div>
+
+          <div class="text-center">
+            <button type="button" class="btn btn-warning text-light">Cancel</button>
+            &nbsp;
+            <button type="submit" class="btn btn-success text-light">Update</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
