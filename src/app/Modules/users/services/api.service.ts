@@ -14,4 +14,13 @@ export class ApiService {
   addUserAPI(user:userSchema){
     return this.http.post(`${this.SERVER_URL}/users`,user)
   }
+
+  getAllUserAPI(){
+    return this.http.get(`${this.SERVER_URL}/users`)
+  }
+
+  getSingleUserAPI(id:string){
+    return this.http.get(`${this.SERVER_URL}/users/${id}`)
+
+  }
 }

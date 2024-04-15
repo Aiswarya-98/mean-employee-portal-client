@@ -28,12 +28,12 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>101</td>
-            <td>Ann</td>
-            <td>Ann@gmail.com</td>
-            <td></td>
+          <tr *ngFor="let user of allUsers; let i = index" [hidden]="!user.empId">
+            <td>{{i+1}}</td>
+            <td>{{user.empId}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td><span [ngClass]="user.status=='active'? 'btn btn-success':'btn btn-warning'">{{user.status}}</span></td>
             <td>
               <a style="text-decoration: none; color: beige;" class="fw-bolder p-2"
               routerLink="/users/edit/:id">
