@@ -3,4 +3,6 @@ export class userSchema {
   name?:string
   email?:string
   status?:string
+  id?:any
+  
 }

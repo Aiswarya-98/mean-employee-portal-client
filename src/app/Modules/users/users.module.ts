@@ -8,6 +8,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchPipe } from './pipes/search.pipe';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     UsersComponent,
     AddUserComponent,
     EditUserComponent,
-    UserListComponent
+    UserListComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,

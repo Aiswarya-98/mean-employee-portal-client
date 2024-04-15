@@ -15,6 +15,26 @@
 
       </div>
 
+      <!-- search user details -->
+
+      <div class="d-flex align-items-center m-2">
+        <span>Search {{searchkey}}</span>
+        <input [(ngModel)]="searchkey" type="text" class="form-control ms-2 w-25" placeholder="Search by username">
+
+        <div class="dropdown ms-2">
+          <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">Sort</button>
+
+          <ul  class="dropdown-menu" aris-labelledby="dropdownMenuButton1">
+            <li><button class="dropdown-item ">By Id</button></li>
+            <li><button class="dropdown-item ">By Username</button></li>
+
+          </ul>
+        </div>
+
+        <button class="btn btn-primary ms-auto">Export</button>
+      </div>
+
       <table class="table shadow mt-5 ms-3">
         <thead>
           <tr>
@@ -28,7 +48,7 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let user of allUsers; let i = index" [hidden]="!user.empId">
+          <tr *ngFor="let user of allUsers | search:searchkey ; let i = index" [hidden]="!user.empId">
             <td>{{i+1}}</td>
             <td>{{user.empId}}</td>
             <td>{{user.name}}</td>
@@ -36,13 +56,17 @@
             <td><span [ngClass]="user.status=='active'? 'btn btn-success':'btn btn-warning'">{{user.status}}</span></td>
             <td>
               <a style="text-decoration: none; color: beige;" class="fw-bolder p-2"
-              routerLink="/users/edit/:id">
+              routerLink="/users/edit/{{user.id}}">
             <i class="fa-solid fa-pen-to-square text-danger">
 
             </i></a>
 
-            <button class="btn"><i class="fa-solid fa-trash"></i></button>
+            <button (click)="deleteUser(user.id)" class="btn"><i class="fa-solid fa-trash"></i></button>
             </td>
+          </tr>
+
+          <tr *ngIf="(allUsers|search:searchkey).length==0">
+          <p class="text-danger fw-bolder">User not found</p>
           </tr>
         </tbody>
       </table>

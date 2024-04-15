@@ -23,4 +23,12 @@ export class ApiService {
     return this.http.get(`${this.SERVER_URL}/users/${id}`)
 
   }
+
+  updateUserAPI(userId:string, userDetails:userSchema){
+    return this.http.put(`${this.SERVER_URL}/users/${userId}`, userDetails)
+  }
+
+  removeUserAPI(userId:string){
+    return this.http.delete(`${this.SERVER_URL}/users/${userId}`)
+  }
 }

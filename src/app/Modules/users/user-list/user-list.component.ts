@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { userSchema } from '../Models/userSchema';
 import { ApiService } from '../services/api.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-list',
@@ -10,8 +11,9 @@ import { ApiService } from '../services/api.service';
 export class UserListComponent implements OnInit {
 
   allUsers : userSchema[]=[]
+  searchkey:string=''
 
-  constructor(private api:ApiService){}
+  constructor(private api:ApiService, private toaster:ToastrService){}
 
   ngOnInit(): void {
     this.getAllUserList()
@@ -30,5 +32,16 @@ export class UserListComponent implements OnInit {
       
     })
   }
+
+  deleteUser(id:any){
+    this.api.removeUserAPI(id).subscribe(
+      (res:any)=>{
+        this.toaster.success("user removed")
+        this.getAllUserList()
+      }
+    )
+  }
+
+
 
 }
