@@ -26,13 +26,13 @@
           data-bs-toggle="dropdown" aria-expanded="false">Sort</button>
 
           <ul  class="dropdown-menu" aris-labelledby="dropdownMenuButton1">
-            <li><button class="dropdown-item ">By Id</button></li>
-            <li><button class="dropdown-item ">By Username</button></li>
+            <li><button class="dropdown-item " (click)="sortById()">By Id</button></li>
+            <li><button class="dropdown-item " (click)="sortByName()">By Username</button></li>
 
           </ul>
         </div>
 
-        <button class="btn btn-primary ms-auto">Export</button>
+        <button class="btn btn-primary ms-auto" (click)="generatePDF()">Export</button>
       </div>
 
       <table class="table shadow mt-5 ms-3">
@@ -48,7 +48,7 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let user of allUsers | search:searchkey ; let i = index" [hidden]="!user.empId">
+          <tr *ngFor="let user of allUsers | search:searchkey | paginate: {itemsPerPage:5, currentPage:page} ; let i = index" [hidden]="!user.empId">
             <td>{{i+1}}</td>
             <td>{{user.empId}}</td>
             <td>{{user.name}}</td>
@@ -70,6 +70,10 @@
           </tr>
         </tbody>
       </table>
+
+      <div class="text-center mt-3">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
       
     </div>
   </div>

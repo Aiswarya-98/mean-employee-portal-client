@@ -9,6 +9,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchPipe } from './pipes/search.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SearchPipe } from './pipes/search.pipe';
     CommonModule,
     UsersRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ]
 })
 export class UsersModule { }

@@ -10,15 +10,23 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
-import {HttpClientModule} from "@angular/common/http"
-
+import {HttpClientModule} from "@angular/common/http";
+import { UpdateAdminComponent } from './update-admin/update-admin.component';
+import { ChartComponent } from './chart/chart.component';
+import { CalenderComponent } from './calender/calender.component'
+import {MatDatepickerModule} from '@angular/material/datepicker'
+import {MatCardModule} from '@angular/material/card';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    UpdateAdminComponent,
+    ChartComponent,
+    CalenderComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +34,10 @@ import {HttpClientModule} from "@angular/common/http"
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatCardModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
