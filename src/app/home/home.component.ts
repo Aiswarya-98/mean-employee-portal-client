@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../Modules/users/services/api.service';
+import { every } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +10,20 @@ import { ApiService } from '../Modules/users/services/api.service';
 })
 export class HomeComponent implements OnInit {
 
+  adminName:string=''
+
   userCount:number=0
 
 
   sideBarStatus: Boolean=true
 
-  constructor(private userAPI:ApiService){}
+  constructor(private userAPI:ApiService, private router :Router){}
 
   ngOnInit(): void {
     this.getTotalEmployeeCount()
+    if(sessionStorage.getItem("adminDetails")){
+      this.adminName=JSON.parse(sessionStorage.getItem("adminDetails") || "").name
+    }
   }
 
   menuBtnClicked(){
@@ -27,6 +34,15 @@ export class HomeComponent implements OnInit {
     this.userAPI.getAllUserAPI().subscribe((res:any)=>{
       this.userCount=res.length
     })
+  }
+
+  onAdminChange(event:any){
+    this.adminName= event
+  }
+
+  logout(){
+    sessionStorage.clear()
+    this.router.navigateByUrl("")
   }
 
 

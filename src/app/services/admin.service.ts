@@ -12,4 +12,9 @@ export class AdminService {
   getAdminDetails () {
     return this.http.get(`${this.SERVER_URL}/users/1`)
   }
+
+  updateAdminAPI(adminDetails:any){
+    return this.http.put(`${this.SERVER_URL}/users/1`,adminDetails)
+
+  }
 }

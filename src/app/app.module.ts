@@ -17,6 +17,7 @@ import { CalenderComponent } from './calender/calender.component'
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import {MatCardModule} from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     HttpClientModule,
     MatDatepickerModule,
     MatCardModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,28 @@
-<p>update-admin works!</p>
+<div *ngIf="!editAdminStatus" class="update d-flex flex-column align-items-center justify-content-center">
+
+  <div>
+    <img width="200px" height="200px" class="img-fluid rounded " [src]="profilePicture" alt="profile">
+  </div>
+
+  <button (click)="editAdminBtn()" class="btn btn-link"><i class="fa-solid fa-user-pen"></i> Edit Admin Details</button>
+
+
+</div>
+
+<div *ngIf="editAdminStatus" class="admin-details d-flex flex-column align-items-center justify-content-center">
+  <h3 class="fw-bolder ">Update Admin Details</h3>
+  <label>
+    <input (change)="getFile($event)" type="file" style="display: none;">
+    <img [src]="profilePicture" alt="profile" width="150px" height="150px" class="img-fluid rounded-5 ">
+  </label>
+
+  <input [(ngModel)]="adminDetails.name" type="text" placeholder="Admin name" class="form-control  mt-3">
+  <input [(ngModel)]="adminDetails.password" type="text" placeholder="Admin password" class="form-control  mt-3">
+
+  <div class="d-flex justify-content-evenly mt-3 w-100">
+    <button (click)="onCancel()" class="btn btn-warning ">Cancel</button>
+    <button (click)="updateAdmin()" class="btn btn-success ">Update</button>
+
+  </div>
+
+</div>
